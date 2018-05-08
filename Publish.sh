@@ -1,4 +1,4 @@
 ./makePapersList.sh
-git add *
-git commit -m "Publish"
+git add papers/*.pdf
+git commit -am "Publish"
 git push
