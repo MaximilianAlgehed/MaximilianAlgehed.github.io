@@ -1,5 +1,5 @@
 
-PAPERS_PDFS=$(wildcard papers/*.pdf)
+PAPERS_PDF=$(wildcard papers/*.pdf)
 TOPLEVEL_HTML=$(patsubst %.md,%.html,$(wildcard *.md))
 PROJECTS_HTML=$(patsubst projects/%.md,projectsHTML/%.html,$(wildcard projects/*.md))
 
@@ -11,5 +11,5 @@ all: $(TOPLEVEL_HTML) $(PROJECTS_HTML) papers.html
 projectsHTML/%.html: projects/%.md
 	pandoc -f markdown $< -o $@
 
-papers.html: $(PAPERS_PDFS) makePapersList.sh
+papers.html: $(PAPERS_PDF) makePapersList.sh
 	./makePapersList.sh

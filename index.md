@@ -5,8 +5,11 @@ place where I keep things which might be of some interest
 to you.
 
 ## Projects
-[Here](projects.html) you will find a (somewhat) up to date list
-of published projects. 
+Below is a somewhat up to date list of projects I'm involved in.
+
+* [QuickSpec](projectsHTML/QuickSpec.html) - Theory Exploration
+
+* [VisPar](projectsHTML/VisPar.html) - Dataflow Visualisation and Teaching 
 
 ## Papers
 [Here](papers.html) you will find a list of PDF files of published
