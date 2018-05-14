@@ -11,5 +11,5 @@ all: $(TOPLEVEL_HTML) $(PROJECTS_HTML) papers.html
 projectsHTML/%.html: projects/%.md
 	pandoc -f markdown $< -o $@
 
-papers.html: $(PAPERS_PDFS)
+papers.html: $(PAPERS_PDFS) makePapersList.sh
 	./makePapersList.sh
