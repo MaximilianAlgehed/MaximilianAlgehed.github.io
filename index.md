@@ -1,7 +1,7 @@
 # Maximilian Alghed
 
-* [projects.html](Projects)
+* [Projects](projects.html)
 
-* [papers.html](Papers)
+* [Papers](papers.html)
 
-* [https://scholar.google.se/citations?user=KGd-EW8AAAAJ&hl=en](Google Scholar)
+* [Google Scholar](https://scholar.google.se/citations?user=KGd-EW8AAAAJ&hl=en)

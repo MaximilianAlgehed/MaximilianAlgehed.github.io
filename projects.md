@@ -1,3 +1,3 @@
 # My Projects
 
-* [projectsHTML/VisPar.html](VisPar)
+* [VisPar](projectsHTML/VisPar.html)
