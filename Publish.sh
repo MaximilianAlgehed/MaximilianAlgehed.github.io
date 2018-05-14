@@ -1,5 +1,5 @@
-pandox index.md > index.html
-pandox projects.md > projects.html
+pandoc index.md > index.html
+pandoc projects.md > projects.html
 ./makePapersList.sh
 ./makeProjectsList.sh
 git add papers/*.pdf
