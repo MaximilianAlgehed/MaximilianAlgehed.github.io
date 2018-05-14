@@ -9,7 +9,7 @@ Below is a somewhat up to date list of projects I'm involved in.
 
 * [QuickSpec](projectsHTML/QuickSpec.html) - Theory Exploration
 
-* [VisPar](projectsHTML/VisPar.html) - Dataflow Visualisation and Teaching 
+* [VisPar](projectsHTML/VisPar.html) - Dataflow Visualisation for Teaching 
 
 ## Papers
 [Here](papers.html) you will find a list of PDF files of published
