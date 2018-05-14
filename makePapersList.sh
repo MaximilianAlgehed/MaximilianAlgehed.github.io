@@ -1,3 +1,3 @@
-echo '<html><body>' > papers.html
-ls papers | sed 's/^\(.*\)\.pdf/<a href="papers\/\1.pdf">\1<\/a><br\/>/' >> papers.html
-echo '</body></html>' >> papers.html
+echo '<html><body><ul>' > papers.html
+ls papers | sed 's/^\(.*\)\.pdf/<li><a href="papers\/\1.pdf">\1<\/a><\/li>/' >> papers.html
+echo '</ul></body></html>' >> papers.html
