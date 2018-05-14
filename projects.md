@@ -1,3 +1,3 @@
 # My Projects
 
-* [VisPar](projectsHTML/VisPar.html)
+* [VisPar](projectsHTML/VisPar.html) - Dataflow visualisation

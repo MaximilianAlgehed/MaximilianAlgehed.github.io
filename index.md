@@ -1,6 +1,8 @@
 # Maximilian Alghed
 
-This is, in some sense, my personal home-page.
+This is, in some sense, my personal home-page. It's the
+place where I keep things which might be of some interest
+to you.
 
 ## Projects
 [Here](projects.html) you will find a (somewhat) up to date list
