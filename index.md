@@ -2,9 +2,9 @@
 title: Maximilian Algehed
 ---
 
-This is, in some sense, my personal home-page. It's the
-place where I keep things which might be of some interest
-to you.
+I'm a Ph.D. student in the functional programming division at Chalmers in Gothenburg.
+My primary interest is in the area of Information Flow Control, where I focus mainly
+on language-based security in a functional setting.
 
 ## Projects
 Below is a somewhat up to date list of projects I'm involved in.
