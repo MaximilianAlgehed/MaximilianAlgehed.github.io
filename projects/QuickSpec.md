@@ -1,3 +1,6 @@
+---
+title: QuickSpec
+---
 # QuickSpec - Theory Exploration for the Busy Programmer
 
 We have a tool called QuickSpec.
