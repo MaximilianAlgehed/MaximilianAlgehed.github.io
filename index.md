@@ -9,6 +9,8 @@ to you.
 ## Projects
 Below is a somewhat up to date list of projects I'm involved in.
 
+* [DCC Encodings](projectsHTML/DCC.html) - Encodings of a Security Calculus
+
 * [QuickSpec](projectsHTML/QuickSpec.html) - Theory Exploration
 
 * [VisPar](projectsHTML/VisPar.html) - Dataflow Visualisation for Teaching 
