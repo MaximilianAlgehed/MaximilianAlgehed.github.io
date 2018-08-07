@@ -1,3 +1,6 @@
+---
+title: Maximilian Algehed
+---
 # Maximilian Alghed
 
 This is, in some sense, my personal home-page. It's the
