@@ -1,7 +1,6 @@
 ---
 title: Maximilian Algehed
 ---
-# Maximilian Alghed
 
 This is, in some sense, my personal home-page. It's the
 place where I keep things which might be of some interest

@@ -1,7 +1,6 @@
 ---
-title: QuickSpec
+title: QuickSpec - Theory Exploration for the Busy Programmer
 ---
-# QuickSpec - Theory Exploration for the Busy Programmer
 
 We have a tool called QuickSpec.
 The paper is available [here](../papers/QuickSpec-JFP.pdf) and 
