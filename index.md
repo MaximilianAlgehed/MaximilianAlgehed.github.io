@@ -7,7 +7,7 @@ My primary interest is in the area of Information Flow Control, where I focus ma
 on language-based security in a functional setting.
 
 ## Projects
-Below is a somewhat up to date list of projects I'm involved in.
+Below is a somewhat up to date list of projects I've been working on:
 
 * [DCC Encodings](projectsHTML/DCC.html) - Encodings of a Security Calculus
 
