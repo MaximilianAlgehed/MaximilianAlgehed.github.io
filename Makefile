@@ -1,4 +1,3 @@
-
 PAPERS_PDF=$(wildcard papers/*.pdf)
 TOPLEVEL_HTML=$(patsubst %.md,%.html,$(wildcard *.md))
 PROJECTS_HTML=$(patsubst projects/%.md,projectsHTML/%.html,$(wildcard projects/*.md))

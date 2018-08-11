@@ -127,3 +127,27 @@ If we run this solver on the example from above we get the following:
 ghci> solve example 
 [[1,-2],[1,2,3],[-1,2,3]]
 ```
+
+## Do-bious syntax
+
+Ok, so this is ultimately about using Haskell to get as small a piece of code as possible
+to perform the SAT task. Since we are using Haskell we have access to a very powerfull abstraction,
+_Monads_. In particular, we have access to the list monad. What does this mean? In effect this means
+that we have a special syntax to apply the `concatMap` function. Here is how it works, if I write the
+code that looks like this:
+```Haskell
+example :: [Int]
+example = do
+  x <- [1..5]
+  replicate x x
+```
+It desugars into code that looks, basically, like this:
+```Haskell
+example :: [Int]
+example = concatMap (\x -> replicate x x) [1..5]
+```
+Which evalutes to:
+```Shell
+ghci> example
+[1,2,2,3,3,3,4,4,4,4,5,5,5,5,5]
+```

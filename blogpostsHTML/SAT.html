@@ -132,5 +132,18 @@ Just [1,-2]</code></pre>
 <p>If we run this solver on the example from above we get the following:</p>
 <pre class="shell"><code>ghci&gt; solve example 
 [[1,-2],[1,2,3],[-1,2,3]]</code></pre>
+<h2 id="do-bious-syntax">Do-bious syntax</h2>
+<p>Ok, so this is ultimately about using Haskell to get as small a piece of code as possible to perform the SAT task. Since we are using Haskell we have access to a very powerfull abstraction, <em>Monads</em>. In particular, we have access to the list monad. What does this mean? In effect this means that we have a special syntax to apply the <code>concatMap</code> function. Here is how it works, if I write the code that looks like this:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode haskell"><code class="sourceCode haskell"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="ot">example ::</span> [<span class="dt">Int</span>]</a>
+<a class="sourceLine" id="cb14-2" data-line-number="2">example <span class="fu">=</span> <span class="kw">do</span></a>
+<a class="sourceLine" id="cb14-3" data-line-number="3">  x <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">5</span>]</a>
+<a class="sourceLine" id="cb14-4" data-line-number="4">  replicate x x</a></code></pre></div>
+<p>It desugars into code that looks, basically, like this:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode haskell"><code class="sourceCode haskell"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="ot">example ::</span> [<span class="dt">Int</span>]</a>
+<a class="sourceLine" id="cb15-2" data-line-number="2">example <span class="fu">=</span> concatMap (\x <span class="ot">-&gt;</span> replicate x x) [<span class="dv">1</span><span class="fu">..</span><span class="dv">5</span>]</a></code></pre></div>
+<p>Which evalutes to:</p>
+<pre class="shell"><code>ghci&gt; example
+[1,2,2,3,3,3,4,4,4,4,5,5,5,5,5]</code></pre>
+<p>O.k. this is all we need to know to understand how the next version of our solver works.</p>
 </body>
 </html>
