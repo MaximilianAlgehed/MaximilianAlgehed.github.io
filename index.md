@@ -19,6 +19,6 @@ Below is a somewhat up to date list of projects I've been working on:
 [Here](papers.html) you will find a list of PDF files of published
 papers and reports.
 
-## Useful Links
+## Links
 * [Google Scholar](https://scholar.google.se/citations?user=KGd-EW8AAAAJ&hl=en)
 * [GitHub](https://github.com/MaximilianAlgehed)
