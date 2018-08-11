@@ -11,7 +11,7 @@ solve []        = [[]]
 solve ([]:p)    = []
 solve ((l:c):p) = 
      [ l:assignment        | assignment <- solve (propagate l p) ]
-  ++ [ negate l:assignment | assignment <- solve (propagate (negate l) p) ]
+  ++ [ negate l:assignment | assignment <- solve (propagate (negate l) (c:p)) ]
 
 example :: Problem
 example = [[1, 2], [-2, 3]]

@@ -130,7 +130,7 @@ Just [1,-2]</code></pre>
 <a class="sourceLine" id="cb12-3" data-line-number="3">  <span class="fu">++</span> [ negate l<span class="fu">:</span>assignment <span class="fu">|</span> assignment <span class="ot">&lt;-</span> solve (propagate (negate l) (c<span class="fu">:</span>p)) ]</a></code></pre></div>
 <p>We simply concatenate all the solutions we get from considering both <code>l</code> and <code>negate l</code>.</p>
 <p>If we run this solver on the example from above we get the following:</p>
-<pre class="shell"><code>ghci&gt; solve example
-[[1,-2],[1,2],[-1,-2],[-1,2]]</code></pre>
+<pre class="shell"><code>ghci&gt; solve example 
+[[1,-2],[1,2,3],[-1,2,3]]</code></pre>
 </body>
 </html>

@@ -124,6 +124,6 @@ We simply concatenate all the solutions we get from considering both `l` and `ne
 
 If we run this solver on the example from above we get the following:
 ```Shell
-ghci> solve example
-[[1,-2],[1,2],[-1,-2],[-1,2]]
+ghci> solve example 
+[[1,-2],[1,2,3],[-1,2,3]]
 ```
