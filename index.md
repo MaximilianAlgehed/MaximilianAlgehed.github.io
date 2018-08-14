@@ -19,6 +19,12 @@ Below is a somewhat up to date list of projects I've been working on:
 [Here](papers.html) you will find a list of PDF files of published
 papers and reports.
 
+## Random Writings
+I sometimes find the time to do things just for fun. If I find the time
+to write the things I do up (however hastily) I will put them here.
+
+* [Solving SAT in 97 characters](blogpostsHTML/SAT.html)
+
 ## Links
 * [Google Scholar](https://scholar.google.se/citations?user=KGd-EW8AAAAJ&hl=en)
 * [GitHub](https://github.com/MaximilianAlgehed)

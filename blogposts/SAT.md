@@ -44,7 +44,7 @@ However, we are going to go for something slightly simpler:
 type Literal = Int
 ```
 Where a positive integer `x` represents a positive Literal and `-x` the negation
-of the Literal. We dissallow `0` as a Literal. A Clause is a disjunction of Literals,
+of the Literal. We disallow `0` as a Literal. A Clause is a disjunction of Literals,
 we represent this simply as a list of `Literal`s:
 ```Haskell
 type Clause = [Literal]
@@ -87,12 +87,12 @@ solve ((l:c):p) =
       Nothing         -> Nothing
 ```
 The type of `solve` tells us that it will take a problem and either return `Just`
-a satisftying assignment, or it will return `Nothing`, indicating that the
+a satisfying assignment, or it will return `Nothing`, indicating that the
 problem is `UNSAT`. The implementation is just a simple backtracking search where
 we propagate the choice of the literal to the rest of the problem and check
 if the smaller problem has a solution or not and act accordingly.
 
-If we run our solver on the problem from eariler we get the following solution:
+If we run our solver on the problem from above we get the following solution:
 ```Shell
 ghci> solve example
 Just [1,-2]
@@ -101,7 +101,7 @@ Just [1,-2]
 ## Multiple Solutions
 
 With our initial solver completed we are ready to start golfing.
-The first thing we are goign to do is to make our solver slightly more powerfull.
+The first thing we are going to do is to make our solver slightly more powerful.
 Instead of having it spit out only the first solution it finds, we are going to make it
 enumerate solutions. The new type of `solve` is the following:
 ```Haskell
@@ -131,7 +131,7 @@ ghci> solve example
 ## Do-bious syntax
 
 Ok, so this is ultimately about using Haskell to get as small a piece of code as possible
-to perform the SAT task. Since we are using Haskell we have access to a very powerfull abstraction,
+to perform the SAT task. Since we are using Haskell we have access to a very powerful abstraction,
 _Monads_. In particular, we have access to the list monad. What does this mean? In effect this means
 that we have a special syntax to apply the `concatMap` function. Here is how it works, if I write the
 code that looks like this:
@@ -143,12 +143,12 @@ example = do
 ```
 The code should be read "for every number x in the range 1 to 5, produce x copies of x".
 That is to say, the variable `x` is bound to the elements of `[1..5]` individually.
-It desugars into code that looks, basically, like this:
+It de-sugars into code that looks, basically, like this:
 ```Haskell
 example :: [Int]
 example = concatMap (\x -> replicate x x) [1..5]
 ```
-Which evalutes to:
+Which evaluates to:
 ```Shell
 ghci> example
 [1,2,2,3,3,3,4,4,4,4,5,5,5,5,5]
@@ -162,12 +162,12 @@ tail xs = do
   (y:ys) <- [xs]
   ys
 ```
-Which desugars into:
+Which de-sugars into:
 ```Haskell
 tail :: [Int] -> [Int]
 tail xs = concatMap (\ys -> case ys of { y:ys -> ys; _ -> [] }) [xs]
 ```
-This is to say, if the pattern on the left-hand-side of the binding (`y:ys`) doesn't match
+This is to say, if the pattern on the left-hand-side of the binding (`y:ys <- ...`) doesn't match
 then we default to the empty list `[]` in the function being mapped.
 We can use this trick to simplify our solver a little bit, getting rid of one of the pattern-matches
 in the definition:
@@ -178,3 +178,24 @@ solve (c:p) = do
   (l:c) <- [c]
   ([l:as | as <- solve (propagate l p)] ++ [negate l:as | as <- solve (propagate (negate l) (c:p))])
 ```
+This code can be further simplified by breaking the implicit backtracking from the recursive calls to
+solve out:
+```Haskell
+solve :: Problem -> [Assignment]
+solve []    = [[]]
+solve (c:p) = do
+  (l:c)  <- [c]
+  (l, p) <- [(l, p), (negate l, c:p)]
+  map (l:) solve (propagate l p)
+```
+We have broken the choice between $\ell$ and $\neg\ell$ out into another implicit call to `concatMap`,
+where the mapped function (the "continuation") consists of the recursive call to `solve`.
+Finally we are ready for the 97 character version of our solver, all we need to do is to inline `propagate`
+and further inline some of the `do` notation.
+```Haskell
+f=filter;s[]=[[]];s(c:p)=do(l:c)<-[c];(l,p)<-[(l,p),(-l,c:p)];(l:)<$>s(f(/=0-l)<$>f(notElem l)p)
+```
+We have renamed `solve` to `s` in order to keep the number of characters to a minimum, but other than that
+there is no significant difference between this code and the one above, other than that we have used
+the inline version of `map`, `(<$>)`, to reduce the number of necessary brackets to make everything parse
+correctly.
