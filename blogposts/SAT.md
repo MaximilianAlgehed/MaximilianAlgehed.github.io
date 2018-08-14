@@ -141,6 +141,8 @@ example = do
   x <- [1..5]
   replicate x x
 ```
+The code should be read "for every number x in the range 1 to 5, produce x copies of x".
+That is to say, the variable `x` is bound to the elements of `[1..5]` individually.
 It desugars into code that looks, basically, like this:
 ```Haskell
 example :: [Int]
@@ -150,4 +152,29 @@ Which evalutes to:
 ```Shell
 ghci> example
 [1,2,2,3,3,3,4,4,4,4,5,5,5,5,5]
+```
+Having a convenient syntax for doing `concatMap` is nice, but what does it give us when we
+are trying to solve SAT? It turns out we can also use this syntax to do pattern-matching.
+The following code:
+```Haskell
+tail :: [Int] -> [Int]
+tail xs = do
+  (y:ys) <- [xs]
+  ys
+```
+Which desugars into:
+```Haskell
+tail :: [Int] -> [Int]
+tail xs = concatMap (\ys -> case ys of { y:ys -> ys; _ -> [] }) [xs]
+```
+This is to say, if the pattern on the left-hand-side of the binding (`y:ys`) doesn't match
+then we default to the empty list `[]` in the function being mapped.
+We can use this trick to simplify our solver a little bit, getting rid of one of the pattern-matches
+in the definition:
+```Haskell
+solve :: Problem -> [Assignment]
+solve []    = [[]]
+solve (c:p) = do
+  (l:c) <- [c]
+  ([l:as | as <- solve (propagate l p)] ++ [negate l:as | as <- solve (propagate (negate l) (c:p))])
 ```

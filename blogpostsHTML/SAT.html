@@ -138,12 +138,25 @@ Just [1,-2]</code></pre>
 <a class="sourceLine" id="cb14-2" data-line-number="2">example <span class="fu">=</span> <span class="kw">do</span></a>
 <a class="sourceLine" id="cb14-3" data-line-number="3">  x <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">5</span>]</a>
 <a class="sourceLine" id="cb14-4" data-line-number="4">  replicate x x</a></code></pre></div>
-<p>It desugars into code that looks, basically, like this:</p>
+<p>The code should be read “for every number x in the range 1 to 5, produce x copies of x”. That is to say, the variable <code>x</code> is bound to the elements of <code>[1..5]</code> individually. It desugars into code that looks, basically, like this:</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode haskell"><code class="sourceCode haskell"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="ot">example ::</span> [<span class="dt">Int</span>]</a>
 <a class="sourceLine" id="cb15-2" data-line-number="2">example <span class="fu">=</span> concatMap (\x <span class="ot">-&gt;</span> replicate x x) [<span class="dv">1</span><span class="fu">..</span><span class="dv">5</span>]</a></code></pre></div>
 <p>Which evalutes to:</p>
 <pre class="shell"><code>ghci&gt; example
 [1,2,2,3,3,3,4,4,4,4,5,5,5,5,5]</code></pre>
-<p>O.k. this is all we need to know to understand how the next version of our solver works.</p>
+<p>Having a convenient syntax for doing <code>concatMap</code> is nice, but what does it give us when we are trying to solve SAT? It turns out we can also use this syntax to do pattern-matching. The following code:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode haskell"><code class="sourceCode haskell"><a class="sourceLine" id="cb17-1" data-line-number="1">tail<span class="ot"> ::</span> [<span class="dt">Int</span>] <span class="ot">-&gt;</span> [<span class="dt">Int</span>]</a>
+<a class="sourceLine" id="cb17-2" data-line-number="2">tail xs <span class="fu">=</span> <span class="kw">do</span></a>
+<a class="sourceLine" id="cb17-3" data-line-number="3">  (y<span class="fu">:</span>ys) <span class="ot">&lt;-</span> [xs]</a>
+<a class="sourceLine" id="cb17-4" data-line-number="4">  ys</a></code></pre></div>
+<p>Which desugars into:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode haskell"><code class="sourceCode haskell"><a class="sourceLine" id="cb18-1" data-line-number="1">tail<span class="ot"> ::</span> [<span class="dt">Int</span>] <span class="ot">-&gt;</span> [<span class="dt">Int</span>]</a>
+<a class="sourceLine" id="cb18-2" data-line-number="2">tail xs <span class="fu">=</span> concatMap (\ys <span class="ot">-&gt;</span> <span class="kw">case</span> ys <span class="kw">of</span> { y<span class="fu">:</span>ys <span class="ot">-&gt;</span> ys; _ <span class="ot">-&gt;</span> [] }) [xs]</a></code></pre></div>
+<p>This is to say, if the pattern on the left-hand-side of the binding (<code>y:ys</code>) doesn’t match then we default to the empty list <code>[]</code> in the function being mapped. We can use this trick to simplify our solver a little bit, getting rid of one of the pattern-matches in the definition:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode haskell"><code class="sourceCode haskell"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="ot">solve ::</span> <span class="dt">Problem</span> <span class="ot">-&gt;</span> [<span class="dt">Assignment</span>]</a>
+<a class="sourceLine" id="cb19-2" data-line-number="2">solve []    <span class="fu">=</span> [[]]</a>
+<a class="sourceLine" id="cb19-3" data-line-number="3">solve (c<span class="fu">:</span>p) <span class="fu">=</span> <span class="kw">do</span></a>
+<a class="sourceLine" id="cb19-4" data-line-number="4">  (l<span class="fu">:</span>c) <span class="ot">&lt;-</span> [c]</a>
+<a class="sourceLine" id="cb19-5" data-line-number="5">  ([l<span class="fu">:</span>as <span class="fu">|</span> as <span class="ot">&lt;-</span> solve (propagate l p)] <span class="fu">++</span> [negate l<span class="fu">:</span>as <span class="fu">|</span> as <span class="ot">&lt;-</span> solve (propagate (negate l) (c<span class="fu">:</span>p))])</a></code></pre></div>
 </body>
 </html>
