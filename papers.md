@@ -5,6 +5,8 @@
 * [DCC-plas2017](papers/DCC-plas2017.pdf)
 * [MSc](papers/MSc.pdf)
 * [Multef-ccs2018](papers/Multef-ccs2018.pdf)
+* [Noninterference-icfp2019](papers/Noninterference-icfp2019.pdf)
+* [OptimisingFSME-csf2019](papers/OptimisingFSME-csf2019.pdf)
 * [QuickSpec-JFP](papers/QuickSpec-JFP.pdf)
 * [Saint-tfp2018](papers/Saint-tfp2018.pdf)
 * [SDCC-plas2018](papers/SDCC-plas2018.pdf)
