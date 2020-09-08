@@ -28,3 +28,5 @@ to write the things I do up (however hastily) I will put them here.
 ## Links
 * [Google Scholar](https://scholar.google.se/citations?user=KGd-EW8AAAAJ&hl=en)
 * [GitHub](https://github.com/MaximilianAlgehed)
+
+©1983 Maximilian Algehed
