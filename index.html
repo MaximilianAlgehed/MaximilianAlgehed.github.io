@@ -1,44 +1,121 @@
+
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Maximilian Algehed</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Maximilian Algehed</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
 </head>
+
 <body>
-<header>
-<h1 class="title">Maximilian Algehed</h1>
+<header role="banner" id="top" class="navbar navbar-static-top bs-docs-nav">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Maximilian Algehed</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Bio</a></li>
+                    <!--<li><a href="publications.html">Publications</a></li>-->
+                    <li><a href="tools.html">Tools and Prototypes</a></li>
+                    <!--<li><a href="career.html">Career</a></li>-->
+
+                </ul>
+
+
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
 </header>
-<p>I’m a Ph.D. student in the functional programming division at Chalmers in Gothenburg. My primary interest is in the area of Information Flow Control, where I focus mainly on language-based security in a functional setting.</p>
-<h2 id="projects">Projects</h2>
-<p>Below is a somewhat up to date list of projects I’ve been working on:</p>
-<ul>
-<li><p><a href="projectsHTML/DCC.html">DCC Encodings</a> - Encodings of a Security Calculus</p></li>
-<li><p><a href="projectsHTML/QuickSpec.html">QuickSpec</a> - Theory Exploration</p></li>
-<li><p><a href="projectsHTML/VisPar.html">VisPar</a> - Dataflow Visualisation for Teaching</p></li>
-</ul>
-<h2 id="papers">Papers</h2>
-<p><a href="papers.html">Here</a> you will find a list of PDF files of published papers and reports.</p>
-<h2 id="random-writings">Random Writings</h2>
-<p>I sometimes find the time to do things just for fun. If I find the time to write the things I do up (however hastily) I will put them here.</p>
-<ul>
-<li><a href="blogpostsHTML/SAT.html">Solving SAT in 97 characters</a></li>
-</ul>
-<h2 id="links">Links</h2>
-<ul>
-<li><a href="https://scholar.google.se/citations?user=KGd-EW8AAAAJ&amp;hl=en">Google Scholar</a></li>
-<li><a href="https://github.com/MaximilianAlgehed">GitHub</a></li>
-</ul>
-<p>©1983 Maximilian Algehed</p>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div id="photo-header" class="text-center">
+                <!-- PHOTO (AVATAR) -->
+                <div id="photo">
+                    <a href="img/me.jpg"><img src="img/me.jpg" alt="me"></a>
+                </div>
+                <div id="text-header">
+                    <h1><span>Maximilian Algehed</span></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-7">
+            <!-- ABOUT ME -->
+            <div class="box">
+                <h2>About Me</h2>
+                <p> I am a doctoral student at Chalmers University of Technology in Sweden and I expect to graduate in June 2021.
+                    My research interests include programming languages, computer security, and formal methods.
+                </p>
+                <p>
+                    Further info about my research and updated publications can be found either in my
+                    <a href="https://dblp.org/pid/202/9706.html">DBLP</a> entry, my
+                    <a href="https://scholar.google.com/citations?user=KGd-EW8AAAAJ&hl=en">Google Scholar</a>
+                    profile or my <a href="https://github.com/MaximilianAlgehed">GitHub</a> page. </p>
+            </div>
+            <!-- EDUCATION -->
+            <div class="box">
+                <h2>Academia</h2>
+                <ul id="education" class="clearfix">
+                    <li>
+                        <div class="year pull-left">2018-Now</div>
+                        <div class="description pull-right">
+                            <h3>Doctoral Student in Computer Science</h3>
+                            <p>Chalmers University of Technology, Gothenburg, Sweden</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="year pull-left">2017</div>
+                        <div class="description pull-right">
+                            <h3>M.Sc. in Computer Science and Engineering</h3>
+                            <p>Chalmers University of Technology, Gothenburg, Sweden</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="year pull-left">2014-2017</div>
+                        <div class="description pull-right">
+                            <h3>B.Sc. in Computer Science and Engineering</h3>
+                            <p>Chalmers University of Technology, Gothenburg, Sweden</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-5">
+            <!-- CONTACT -->
+            <div class="box clearfix">
+                <h2>Contact</h2>
+                <div class="contact-item">
+                    <div class="icon pull-left text-center"><span class="fa fa-envelope fa-fw"></span></div>
+                    <div class="title only pull-right">m.algehed<i class="fa fa-at" aria-hidden="true" style="font-size: 1em;padding-right: 1px"></i>gmai.com</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- JQUERY -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<!-- BOOTSTRAP -->
+<script src="js/bootstrap.min.js"></script>
+<!-- SCRIPTS -->
+<script src="js/scripts.js"></script>
 </body>
 </html>
+
